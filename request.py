@@ -1,9 +1,11 @@
 import requests
 
+urlinput = input("Give me a url to check it for you : ")
+
 with open("file.txt", "r") as wd:
     red = wd.readlines()
     for url in red:
-        url = "http://www.wispring.org.cn/{}".format(url.strip())
+        url = urlinput.format(url.strip())
         req = requests.get(url , timeout = 5)
         stat = req.status_code
         if stat == 200:
@@ -28,5 +30,4 @@ with open("file.txt", "r") as wd:
 
 # code()
 # print(req2.text)
-
 
